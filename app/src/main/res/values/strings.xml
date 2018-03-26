@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Best TV Series</string>
+    <string name="name">Name</string>
+    <string name="category">Category</string>
+    <string name="delete">DELETE</string>
+</resources>
