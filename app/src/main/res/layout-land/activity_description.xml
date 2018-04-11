@@ -1,111 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id = "@+id/desc_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id = "@+id/desc_layout"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.example.agatarychter.tvseries.Description">
 
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="261dp"
-        android:layout_height="169dp"
+        android:layout_width="277dp"
+        android:layout_height="197dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.081"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button_screens"
-        android:layout_alignStart="@+id/button_screens"
-        android:layout_below="@+id/genre"
-        android:layout_marginTop="13dp"
+        android:layout_above="@+id/button_actors"
+        android:layout_alignEnd="@+id/button_actors"
+        android:layout_alignRight="@+id/button_actors"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="@string/name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.793" />
 
     <TextView
         android:id="@+id/genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/button_screens"
         android:layout_alignLeft="@+id/button_screens"
         android:layout_alignStart="@+id/button_screens"
-        android:layout_alignTop="@+id/photo"
-        android:layout_marginTop="54dp"
         android:text="@string/category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.912" />
 
     <Button
         android:id="@+id/button_actors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/contener"
-        android:layout_alignStart="@+id/contener"
-        android:layout_below="@+id/photo"
+        android:layout_alignLeft="@+id/photo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/photo"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
         android:text="@string/actors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.489" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button_screens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/contener"
-        android:layout_alignRight="@+id/contener"
-        android:layout_below="@+id/photo"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
+        android:layout_alignBaseline="@+id/button_actors"
+        android:layout_alignBottom="@+id/button_actors"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_toLeftOf="@+id/contener"
+        android:layout_toStartOf="@+id/contener"
         android:text="@string/screens"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_actors"
-        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.032" />
 
     <!--<fragment-->
         <!--android:id="@+id/fragment_place"-->
         <!--class="com.example.agatarychter.tvseries.BlankFragment"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_below="@+id/button_screens"-->
-        <!--android:layout_alignParentLeft="true" />-->
+        <!--android:layout_width="250dp"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_toEndOf="@+id/photo"-->
+        <!--android:layout_toRightOf="@+id/photo"/>-->
 
     <FrameLayout
 
         android:id="@+id/contener"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button_screens"
-        android:layout_alignParentLeft="true">
-    </FrameLayout>
-
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_toEndOf="@+id/photo"
+    android:layout_toRightOf="@+id/photo">
+</FrameLayout>
 
 </RelativeLayout>

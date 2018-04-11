@@ -3,6 +3,7 @@ package com.example.agatarychter.tvseries;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,57 +27,62 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements RecyclerItemTouchHelper.RecyclerItemTouchHelperListener{
     private RecyclerView recyclerView;
     private MyAdapter adapter;
-    private List<SingleItem> itemList;
-    private int [] IMAGES = {R.drawable.break1,R.drawable.ga, R.drawable.got1, R.drawable.peaky,R.drawable.once,R.drawable.hannibal};
+    private List<TVSeriesDef> itemList;
+    private static final String FILM_LIST = "FILM_LIST";
    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-        initAdapterElements();
+       if(savedInstanceState==null) {
+           initItems();
+       }
+       else {
+           itemList = savedInstanceState.getParcelableArrayList(FILM_LIST);
+       }
+       initAdapterElements();
     }
 
     private void initViews() {
         recyclerView = (RecyclerView)findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        itemList = new ArrayList<>();
-        initItems();
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
-    private void initAdapterElements()
-    {
+    private void initAdapterElements() {
         adapter = new MyAdapter(itemList,getApplicationContext());
         recyclerView.setAdapter(adapter);
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT,  this);
         new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(FILM_LIST, (ArrayList<? extends Parcelable>) itemList);
+    }
+
     private void initItems() {
-        itemList.add(new SingleItem("Breaking bad", "Criminal"));
-        itemList.add(new SingleItem("Grey's Anatomy","Drama"));
-        itemList.add(new SingleItem("Game of Thrones","Fantasy"));
-        itemList.add(new SingleItem("Peaky Blinders","Historical drama"));
-        itemList.add(new SingleItem("Once upon a time","Fantasy"));
-        itemList.add(new SingleItem("Hannibal","Horror"));
+        TVSeriesClass tvSeries = TVSeriesClass.getInstance();
+        tvSeries.getInstance().initialize(this);
+        tvSeries.setTVSeries();
+        itemList = tvSeries.getTVSeriesList();
     }
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
         if (viewHolder instanceof MyAdapter.MyViewHolder) {
-            String name = itemList.get(viewHolder.getAdapterPosition()).getName();
             adapter.removeItem(viewHolder.getAdapterPosition());
         }
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-        private List<SingleItem> list;
-        public MyAdapter(List<SingleItem> list, Context context)
-        {
+        private List<TVSeriesDef> list;
+        private Context context;
+        public MyAdapter(List<TVSeriesDef> list, Context context) {
             this.list = list;
+            this.context = context;
         }
 
         class MyViewHolder extends RecyclerView.ViewHolder{
@@ -88,22 +94,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
             public MyViewHolder(View itemView) {
                 super(itemView);
                 initViews();
-                initListener();
-            }
 
-            private void initListener()
-            {
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Context context = view.getContext();
-                        Intent intent = new Intent(context, Description.class);
-                        Description.start(getApplicationContext(),name.getText().toString(),category.getText().toString(),R.drawable.bb);
-                        context.startActivity(intent);
-                    }
-                });
             }
-
             private void initViews() {
                 name = (TextView)itemView.findViewById(R.id.name);
                 category=(TextView)itemView.findViewById(R.id.category);
@@ -119,11 +111,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
-            SingleItem singleItem = list.get(position);
+        public void onBindViewHolder(final MyViewHolder holder, final int position) {
+            final TVSeriesDef singleItem = list.get(position);
             holder.name.setText(singleItem.getName());
-            holder.category.setText(singleItem.getCategory());
-            holder.photo.setImageResource(IMAGES[position]);
+            holder.category.setText(singleItem.getGenre());
+            holder.photo.setImageResource(singleItem.getImageResource());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Description.start(view.getContext(),singleItem.getName(),singleItem.getGenre(),singleItem.getImageResource(),singleItem.getScreens(),singleItem.getActors(),singleItem.getColor());
+                }
+            });
 
         }
         private void removeItem(int position) {
