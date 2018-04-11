@@ -125,7 +125,7 @@ public class TVSeriesClass {
         actorsWestworld.add(new Actor(context.getResources().getString(R.string.james_marsden),36,R.drawable.james_marsden));
         actorsWestworld.add(new Actor(context.getResources().getString(R.string.evan_rachel),32,R.drawable.dolores));
         actorsWestworld.add(new Actor(context.getResources().getString(R.string.thandie),45,R.drawable.thandie));
-        actorsWestworld.add(new Actor(context.getResources().getString(R.string.jeffrey),48,R.drawable.bernard));
+        actorsWestworld.add(new Actor(context.getResources().getString(R.string.jeffrey),48,R.drawable.jeffrey));
         actorsWestworld.add(new Actor(context.getResources().getString(R.string.angela),30,R.drawable.angela));
     }
     private void setPeakyBlindersPhotosAndActors() {

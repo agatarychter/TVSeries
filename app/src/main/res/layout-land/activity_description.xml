@@ -93,27 +93,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <!--<fragment-->
-        <!--android:id="@+id/fragment_place"-->
-        <!--class="com.example.agatarychter.tvseries.BlankFragment"-->
-        <!--android:layout_width="250dp"-->
-        <!--android:layout_height="250dp"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_toEndOf="@+id/photo"-->
-        <!--android:layout_toRightOf="@+id/photo"/>-->
-
     <FrameLayout
-
         android:id="@+id/contener"
-    android:layout_width="250dp"
-    android:layout_height="250dp"
-    android:layout_centerVertical="true"
-    android:layout_marginLeft="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_toEndOf="@+id/photo"
-    android:layout_toRightOf="@+id/photo">
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/photo"
+        android:layout_toRightOf="@+id/photo">
 </FrameLayout>
 
 </RelativeLayout>

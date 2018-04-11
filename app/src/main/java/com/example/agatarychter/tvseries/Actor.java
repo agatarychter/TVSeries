@@ -1,8 +1,6 @@
 package com.example.agatarychter.tvseries;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-
 /**
  * Created by Agata Rychter on 02.04.2018.
  */

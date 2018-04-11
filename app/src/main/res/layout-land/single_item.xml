@@ -7,30 +7,34 @@
 
     <TextView
         android:id="@+id/name_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/fragment_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/fragment_age"
-        android:layout_width="wrap_content"
+        android:layout_width="97dp"
         android:layout_height="46dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textSize="8sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/fragment_icon"
-        app:layout_constraintTop_toBottomOf="@+id/name_fragment" />
+        app:layout_constraintTop_toBottomOf="@+id/name_fragment"
+        app:layout_constraintVertical_bias="0.009" />
 
     <ImageView
         android:id="@+id/fragment_icon"
@@ -42,9 +46,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
         app:srcCompat="@drawable/emilia_clark" />
 
     <android.support.constraint.Guideline
@@ -59,12 +64,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="308dp" />
+        app:layout_constraintGuide_begin="286dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="270dp" />
+        app:layout_constraintGuide_begin="174dp" />
 </android.support.constraint.ConstraintLayout>

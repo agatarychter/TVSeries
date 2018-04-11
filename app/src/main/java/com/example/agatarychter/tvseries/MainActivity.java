@@ -1,26 +1,18 @@
 package com.example.agatarychter.tvseries;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,6 +124,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerItemTouch
         public int getItemCount() {
             return list.size();
         }
+
+
     }
 }
 
